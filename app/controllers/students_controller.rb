@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: :show
+  before_action :set_student, only: [:show, :activate]
   
   def index
     @students = Student.all
@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
   end
 
   def activate
-    set_student
+    # set_student
     @student.update(active: !@student.active)
     redirect_to student_path
   end
